@@ -1,49 +1,62 @@
-// Bài tập 1: Chuyển đổi hàm (Đã đúng)
+// Bài 1
 const multiply = (a, b) => a * b;
-
 const isPositive = (number) => number >= 0;
-
 const getRandomNumber = () => Math.random();
 
-document.addEventListener("click", () => {
-  console.log("Clicked!");
-});
-
-// Bài tập 2: Sử dụng Default Parameters (Chuyển sang Arrow Function)
-const createUser = (name = "Anonymous", age = 18, isAdmin = false) => ({
-  name,
-  age,
-  isAdmin,
-});
-
-// Bài tập 3: Rest và Spread (Chuyển sang Arrow Function)
-
-const mergeArrays = (...arrays) => {
-  let mergedArray = [];
-  for (let arr of arrays) {
-    mergedArray.push(...arr);
-  }
-  return mergedArray;
-};
-
-const sumAll = (...numbers) => {
-  return numbers.reduce((total, num) => total + num, 0);
-};
-
-const createProduct = (productInfo) => {
-  const defaultProduct = {
-    name: "Unnamed Product",
-    price: 0,
-    quantity: 1,
-  };
-  return { ...defaultProduct, ...productInfo };
-};
-
-// Bài tập 4: Ứng dụng thực tế (Chuyển sang Arrow Function)
-const shoppingCart = (customerName, ...products) => {
+// Bài 2
+function createUser(name = "Anonymous", age = 18, isAdmin = false) {
   return {
-    customerName: customerName,
-    products: products,
-    itemCount: products.length,
+    name,
+    age,
+    isAdmin,
   };
-};
+}
+
+// Bài 3
+function mergeArrays(...arrays) {
+  return [].concat(...arrays);
+}
+
+function sumAll(...numbers) {
+  return numbers.reduce((total, num) => total + num, 0);
+}
+
+function createProduct(name = "Unnamed Product", price = 10, quantity = 1) {
+  return {
+    name,
+    price,
+    quantity,
+    totalPrice: price * quantity,
+  };
+}
+
+// Bài 4
+function shoppingCart(customerName, ...products) {
+  return {
+    customerName,
+    products,
+    totalItems: products.length,
+  };
+}
+
+// --- Chạy thử các hàm ---
+
+console.log("--- Bài 1 ---");
+console.log("multiply(5, 10):", multiply(5, 10));
+console.log("isPositive(-3):", isPositive(-3));
+console.log("getRandomNumber():", getRandomNumber());
+
+console.log("\n--- Bài 2 ---");
+console.log("createUser():", createUser());
+console.log("createUser('Bob', 30):", createUser("Bob", 30));
+
+console.log("\n--- Bài 3 ---");
+const arrA = [1, 2];
+const arrB = ["a", "b"];
+console.log("mergeArrays(arrA, arrB):", mergeArrays(arrA, arrB));
+console.log("sumAll(10, 20, 30):", sumAll(10, 20, 30));
+console.log("createProduct('Keyboard'):", createProduct("Keyboard"));
+
+console.log("\n--- Bài 4 ---");
+const order1 = shoppingCart("Alice", "Milk", "Bread");
+console.log("shoppingCart('Alice', 'Milk', 'Bread'):", order1);
