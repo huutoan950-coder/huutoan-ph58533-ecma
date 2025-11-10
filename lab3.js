@@ -3,41 +3,31 @@ const multiply = (a, b) => a * b;
 const isPositive = (number) => number >= 0;
 const getRandomNumber = () => Math.random();
 
-// Bài 2
-function createUser(name = "Anonymous", age = 18, isAdmin = false) {
-  return {
-    name,
-    age,
-    isAdmin,
-  };
-}
+// Bài 2 (Viết lại bằng Arrow Function và trả về object rút gọn)
+const createUser = (name = "Anonymous", age = 18, isAdmin = false) => ({
+  name,
+  age,
+  isAdmin,
+});
 
-// Bài 3
-function mergeArrays(...arrays) {
-  return [].concat(...arrays);
-}
+// Bài 3 (Viết lại bằng Arrow Function)
+const mergeArrays = (...arrays) => [].concat(...arrays);
 
-function sumAll(...numbers) {
-  return numbers.reduce((total, num) => total + num, 0);
-}
+const sumAll = (...numbers) => numbers.reduce((total, num) => total + num, 0);
 
-function createProduct(name = "Unnamed Product", price = 10, quantity = 1) {
-  return {
-    name,
-    price,
-    quantity,
-    totalPrice: price * quantity,
-  };
-}
+const createProduct = (name = "Unnamed Product", price = 10, quantity = 1) => ({
+  name,
+  price,
+  quantity,
+  totalPrice: price * quantity,
+});
 
-// Bài 4
-function shoppingCart(customerName, ...products) {
-  return {
-    customerName,
-    products,
-    totalItems: products.length,
-  };
-}
+// Bài 4 (Viết lại bằng Arrow Function)
+const shoppingCart = (customerName, ...products) => ({
+  customerName,
+  products,
+  totalItems: products.length,
+});
 
 // --- Chạy thử các hàm ---
 
